@@ -9,7 +9,7 @@
   Fine-tune LLaMA3 using PEFT(a Python library by HuggingFace for efficient fine-tuning)
 ### Result:  
 * **Before fine-tuning:**  
-  The outcome might always be "Claim". Only a few "Premise". The accuracy is 47% correct for 50% probability in this 2-answer problem.  
+  The outcome might always be "Claim". Only a few "Premise". The accuracy is 47% correct for a 2-answer problem has a 50% probability.  
 * **After fine-tuning:**  
   The outcome has both "Claim" and "Premise". The accuracy is raised to 76% correct.
     
