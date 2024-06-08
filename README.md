@@ -6,7 +6,7 @@
 * **LLaMA2-7B**  
 >Authorized directly from Kaggle. No need to download to the local device  
 ### Method:  
-  Fine-tune LLaMA3 using PEFT(a Python library by HuggingFace for efficient fine-tuning)
+  Fine-tune LLaMA3 using PEFT(a Python library by HuggingFace for Parameter-Efficient Fine-Tuning)
 ### Result:  
 * **Before fine-tuning:**  
   The outcome might always be "Claim". Only a few "Premise". The accuracy is 47% correct for a 2-answer problem has a 50% probability.  
