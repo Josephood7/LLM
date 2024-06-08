@@ -15,6 +15,33 @@
 ### Prompt:  
 >The correct answer in the training script should be "text" not "label with numbers".  
 >We should use the sentence "either...or..." to distinct the 2 classes.
+```Python
+def generate_prompt(data_point):
+    return f"""
+            This sentense is either premise or claim, which category does it belong to? Be determine and concise about the output. The answer is either premise or claim.
+
+            [{data_point["text"]}] = {data_point["pc"]}
+            """.strip()
+```
+```Python
+def generate_test_prompt(data_point):
+    return f"""
+            This sentense is either premise or claim, which category does it belong to? Be determine and concise about the output. The answer is either premise or claim.
+            
+            [{data_point["text"]}] = """.strip()
+```
+Get the string after "=" to elicit the answer
+```Python
+        prompt = X_test.iloc[i]["text"]
+        pipe = pipeline(task="text-generation", 
+                        model=model, 
+                        tokenizer=tokenizer, 
+                        max_new_tokens = 1, 
+                        temperature = 1.0,
+                       )
+        result = pipe(prompt)
+        answer = result[0]['generated_text'].split("=")[-1].strip()
+```
 ### Fine-tuning:  
 >The way we fine-tune LLM. We do not separate input sentences with labels for supervised learning. Instead, we combine them into a corpus. The LLM then use self-supervised learning to mask and learn through the transformer mechanism.
   
