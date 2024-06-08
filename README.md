@@ -43,7 +43,7 @@ Get the string after "=" to elicit the answer
         answer = result[0]['generated_text'].split("=")[-1].strip()
 ```
 ### Fine-tuning:  
->The way we fine-tune LLM. We do not separate input sentences with labels for supervised learning. Instead, we combine them into a corpus. The LLM then use self-supervised learning to mask and learn through the transformer mechanism.
+>The way we fine-tune LLM. We do not separate input sentences with labels. Instead, we combine them into a corpus. Then we use the Supervised Fine-tuning Step (SFT) in the Transformer Reinforcement Learning library (trl) by HuggingFace.
   
 ps. The outcome of the result might not be exactly the "Premise" or "Claim". We might see "Prem", "premise" or "claim" as the result of prediction. Thus, we can resolve this problem beforehand.
 
